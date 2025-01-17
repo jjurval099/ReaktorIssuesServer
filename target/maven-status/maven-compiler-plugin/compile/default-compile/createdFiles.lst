@@ -1,0 +1,12 @@
+es\iesjandula\ReaktorIssuesServer\security\CorsConfiguration$1.class
+es\iesjandula\ReaktorIssuesServer\repository\IIncidenciaRepository.class
+es\iesjandula\ReaktorIssuesServer\utils\IssuesServerError.class
+es\iesjandula\ReaktorIssuesServer\ReaktorIssuesServerApplication.class
+es\iesjandula\ReaktorIssuesServer\entity\IncidenciaEntity.class
+es\iesjandula\ReaktorIssuesServer\mappers\IncidenciaMapper.class
+es\iesjandula\ReaktorIssuesServer\security\CorsConfiguration.class
+es\iesjandula\ReaktorIssuesServer\dto\IncidenciaDTO.class
+es\iesjandula\ReaktorIssuesServer\rest\IncidenciaController.class
+es\iesjandula\ReaktorIssuesServer\dto\FiltroBusqueda.class
+es\iesjandula\ReaktorIssuesServer\entity\IncidenciaEntityId.class
+es\iesjandula\ReaktorIssuesServer\utils\Constants.class

@@ -1,0 +1,11 @@
+C:\Users\juana\eclipse-workspace\Reaktor_IssuesServer\src\main\java\es\iesjandula\ReaktorIssuesServer\dto\FiltroBusqueda.java
+C:\Users\juana\eclipse-workspace\Reaktor_IssuesServer\src\main\java\es\iesjandula\ReaktorIssuesServer\dto\IncidenciaDTO.java
+C:\Users\juana\eclipse-workspace\Reaktor_IssuesServer\src\main\java\es\iesjandula\ReaktorIssuesServer\entity\IncidenciaEntity.java
+C:\Users\juana\eclipse-workspace\Reaktor_IssuesServer\src\main\java\es\iesjandula\ReaktorIssuesServer\entity\IncidenciaEntityId.java
+C:\Users\juana\eclipse-workspace\Reaktor_IssuesServer\src\main\java\es\iesjandula\ReaktorIssuesServer\mappers\IncidenciaMapper.java
+C:\Users\juana\eclipse-workspace\Reaktor_IssuesServer\src\main\java\es\iesjandula\ReaktorIssuesServer\ReaktorIssuesServerApplication.java
+C:\Users\juana\eclipse-workspace\Reaktor_IssuesServer\src\main\java\es\iesjandula\ReaktorIssuesServer\repository\IIncidenciaRepository.java
+C:\Users\juana\eclipse-workspace\Reaktor_IssuesServer\src\main\java\es\iesjandula\ReaktorIssuesServer\rest\IncidenciaController.java
+C:\Users\juana\eclipse-workspace\Reaktor_IssuesServer\src\main\java\es\iesjandula\ReaktorIssuesServer\security\CorsConfiguration.java
+C:\Users\juana\eclipse-workspace\Reaktor_IssuesServer\src\main\java\es\iesjandula\ReaktorIssuesServer\utils\Constants.java
+C:\Users\juana\eclipse-workspace\Reaktor_IssuesServer\src\main\java\es\iesjandula\ReaktorIssuesServer\utils\IssuesServerError.java
