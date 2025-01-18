@@ -19,7 +19,39 @@
     </head>
 
     <body>
-
+        <div class="contenedor-formulario">
+            <h1>Registro de Incidencias</h1>
+            <form>
+                <div class="cajas-formulario">
+                    <label for="aula">Número de Aula <span class="required">*</span></label>
+                    <input type="text" id="aula" name="aula" placeholder="Tu respuesta" required>
+                </div>
+    
+                <div class="cajas-formulario">
+                    <label for="profesor">Nombre Profesor Detecta Incidencia <span class="required">*</span></label>
+                    <select id="profesor" name="profesor" required>
+                        <option value="">Elige</option>
+                        <option value="profesor1">Profesor 1</option>
+                        <option value="profesor2">Profesor 2</option>
+                        <option value="profesor3">Profesor 3</option>
+                    </select>
+                </div>
+    
+                <div class="cajas-formulario">
+                    <label for="fecha">Fecha Detección Incidencia <span class="required">*</span></label>
+                    <input type="date" id="fecha" name="fecha" required>
+                </div>
+    
+                <div class="cajas-formulario">
+                    <label for="descripcion">Descripción de Incidencia <span class="required">*</span></label>
+                    <textarea id="descripcion" name="descripcion" placeholder="Tu respuesta" required></textarea>
+                </div>
+    
+                <div class="cajas-formulario">
+                    <button type="submit">Enviar</button>
+                </div>
+            </form>
+        </div>
      
     </body>
 	

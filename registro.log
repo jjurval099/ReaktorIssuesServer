@@ -1311,3 +1311,37 @@ IncidenciaEntity(numeroAula=0.2, correoDocente=davjasg@gmail.com, fechaIncidenci
 2024-11-11T09:02:46.441+01:00  INFO 13664 --- [http-nio-8888-exec-6] e.i.R.rest.IncidenciaController          : INFO: El objeto guardado en base de datos es:
 IncidenciaEntity(numeroAula=0.2, correoDocente=davjasg@gmail.com, fechaIncidencia=Mon Nov 11 09:02:45 CET 2024, descripcionIncidencia= Jesus rompe cosa Jesus rompe cosaJesus rompe cosa, estadoIncidencia=CANCELADA, comentario=)
 2024-11-11T11:26:18.367+01:00  WARN 13664 --- [HikariPool-2 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-2 - Thread starvation or clock leap detected (housekeeper delta=8m56s801ms210µs100ns).
+2025-01-17T14:57:51.327+01:00  INFO 14076 --- [restartedMain] e.i.R.ReaktorIssuesServerApplication     : Starting ReaktorIssuesServerApplication using Java 21.0.5 with PID 14076 (C:\Users\juana\eclipse-workspace\Reaktor_IssuesServer\target\classes started by juana in C:\Users\juana\eclipse-workspace\Reaktor_IssuesServer)
+2025-01-17T14:57:51.336+01:00  INFO 14076 --- [restartedMain] e.i.R.ReaktorIssuesServerApplication     : No active profile set, falling back to 1 default profile: "default"
+2025-01-17T14:57:51.557+01:00  INFO 14076 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-01-17T14:57:51.558+01:00  INFO 14076 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-01-17T14:57:54.243+01:00  INFO 14076 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-01-17T14:57:55.197+01:00  INFO 14076 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 924 ms. Found 1 JPA repository interface.
+2025-01-17T14:57:57.478+01:00  INFO 14076 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8888 (http)
+2025-01-17T14:57:57.520+01:00  INFO 14076 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-01-17T14:57:57.521+01:00  INFO 14076 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.30]
+2025-01-17T14:57:57.688+01:00  INFO 14076 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-01-17T14:57:57.694+01:00  INFO 14076 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 6132 ms
+2025-01-17T14:57:58.674+01:00  INFO 14076 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-01-17T14:57:58.938+01:00  INFO 14076 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.5.3.Final
+2025-01-17T14:57:59.058+01:00  INFO 14076 --- [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-01-17T14:57:59.983+01:00  INFO 14076 --- [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-01-17T14:58:00.135+01:00  INFO 14076 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-01-17T14:58:01.325+01:00  INFO 14076 --- [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@65d276a1
+2025-01-17T14:58:01.336+01:00  INFO 14076 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-01-17T14:58:03.952+01:00  INFO 14076 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-01-17T14:58:04.116+01:00  INFO 14076 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-01-17T14:58:04.917+01:00  INFO 14076 --- [restartedMain] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-01-17T14:58:08.092+01:00  WARN 14076 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-01-17T14:58:09.286+01:00  INFO 14076 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2025-01-17T14:58:09.419+01:00  INFO 14076 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8888 (http) with context path '/'
+2025-01-17T14:58:09.453+01:00  INFO 14076 --- [restartedMain] e.i.R.ReaktorIssuesServerApplication     : Started ReaktorIssuesServerApplication in 19.527 seconds (process running for 21.386)
+2025-01-17T14:58:39.736+01:00  INFO 14076 --- [http-nio-8888-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-01-17T14:58:39.736+01:00  INFO 14076 --- [http-nio-8888-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-01-17T14:58:39.738+01:00  INFO 14076 --- [http-nio-8888-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2025-01-17T14:58:39.782+01:00  WARN 14076 --- [http-nio-8888-exec-1] o.s.web.servlet.PageNotFound             : No mapping for GET /
+2025-01-17T14:58:39.806+01:00  WARN 14076 --- [http-nio-8888-exec-1] o.s.web.servlet.PageNotFound             : No endpoint GET /.
+2025-01-17T14:58:40.091+01:00  WARN 14076 --- [http-nio-8888-exec-1] o.s.web.servlet.PageNotFound             : No mapping for GET /favicon.ico
+2025-01-17T14:58:40.104+01:00  WARN 14076 --- [http-nio-8888-exec-1] o.s.web.servlet.PageNotFound             : No endpoint GET /favicon.ico.
+2025-01-17T15:00:05.716+01:00  WARN 14076 --- [http-nio-8888-exec-4] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'GET' is not supported]
+2025-01-17T15:00:18.325+01:00  WARN 14076 --- [http-nio-8888-exec-5] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'GET' is not supported]
