@@ -210,7 +210,7 @@ public class IncidenciaController
 	 *         con código de estado 500 (Internal Server Error).</li>
 	 *         </ul>
 	 */
-	@RequestMapping(method = RequestMethod.POST)
+	@RequestMapping(name="/post", method = RequestMethod.POST)
 	public ResponseEntity<?> buscaIncidencia(@RequestBody FiltroBusqueda filtroBusqueda)
 	{
 		try
