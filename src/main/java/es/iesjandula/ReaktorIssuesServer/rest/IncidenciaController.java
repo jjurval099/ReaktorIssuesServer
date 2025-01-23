@@ -113,16 +113,24 @@ public class IncidenciaController
 			// Si el numero de aula está vacio o solo espacios.
 			if (incidenciaDTO.getNumeroAula() == null || incidenciaDTO.getNumeroAula().isBlank())
 			{
-				log.error("Intento de creación de incidencia con numero de aula no definido");
-				return ResponseEntity.badRequest().body("ERROR: Numero de aula nulo o vacio.");
+				String errorString = "El número de aula es obligatorio.";
+				log.error(errorString);
+				throw new IssuesServerError(4, errorString);
+				
+				//log.error("Intento de creación de incidencia con numero de aula no definido");
+				//return ResponseEntity.badRequest().body("ERROR: Numero de aula nulo o vacio.");
 			}
 
 			// Si la descripcion está vacia o solo espacios.
 			if (incidenciaDTO.getDescripcionIncidencia() == null
 					|| incidenciaDTO.getDescripcionIncidencia().isBlank())
 			{
-				log.error("Intento de creación de incidencia con descripcion no definida o menor de 15 caracteres");
-				return ResponseEntity.badRequest().body("ERROR: Descripcion de incidencia nulo, vacio o menor de 15 caracteres.");
+				String errorString = "La descripción de la incidencia es obligatoria";
+	        	log.error(errorString);
+	        	throw new IssuesServerError(5, errorString);
+				
+				//log.error("Intento de creación de incidencia con descripcion no definida o menor de 15 caracteres");
+				//return ResponseEntity.badRequest().body("ERROR: Descripcion de incidencia nulo, vacio o menor de 15 caracteres.");
 			}
 			
 			// Si tanto numero de aula como descripción han sido definidos correctamente
@@ -179,6 +187,10 @@ public class IncidenciaController
 			return response;
 
 		}
+		catch (IssuesServerError exception)
+		{
+			return ResponseEntity.status(400).body(exception.getMapError()) ;
+		}
 		catch (Exception createIssueException)
 		{
 			String message = "Excepción capturada en crearIncidencia(): {}" + createIssueException.getMessage();
@@ -217,44 +229,44 @@ public class IncidenciaController
 	{
 	    try 
 	    {
-	        // Loguea los parámetros recibidos
-	        log.debug("DEBUG: Parametros de incidencia recibidos:\n {}", crearIncidenciaDTO.toString());
-
 	        // Validar que los datos obligatorios estén presentes
 	        if (crearIncidenciaDTO.getNumeroAula() == null || crearIncidenciaDTO.getNumeroAula().isEmpty()) 
 	        {
-	            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("El número de aula es obligatorio.");
+	        	String errorString = "El número de aula es obligatorio." ;
+	        	
+	        	log.error(errorString) ;
+	        	throw new IssuesServerError(1, errorString) ;
 	        }
 
 	        if (crearIncidenciaDTO.getCorreoDocente() == null || crearIncidenciaDTO.getCorreoDocente().isEmpty())
 	        {
-	            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("El correo del docente es obligatorio.");
+	        	String errorString = "El correo del docente es obligatorio." ;
+	        	
+	        	log.error(errorString) ;
+	        	throw new IssuesServerError(2, errorString) ;
 	        }
 
 	        if (crearIncidenciaDTO.getDescripcionIncidencia() == null || crearIncidenciaDTO.getDescripcionIncidencia().isEmpty()) 
 	        {
-	            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("La descripción de la incidencia es obligatoria.");
-	        }
+	        	String errorString = "La descripción de la incidencia es obligatoria." ;
+	        	
+	        	log.error(errorString) ;
+	        	throw new IssuesServerError(3, errorString) ;	        }
 	        
-
-	        // Formatear y asignar fecha si no se proporciona
-	        Date fechaIncidenciaF;
-	        if (crearIncidenciaDTO.getFechaIncidencia() == null)
-	        {
-	            fechaIncidenciaF = new Date(); // Fecha actual
-	            crearIncidenciaDTO.setFechaIncidencia(fechaIncidenciaF);
-	        } 
-	        else 
-	        {
-	            fechaIncidenciaF = crearIncidenciaDTO.getFechaIncidencia();
-	        }
-	        
-
 	        // Crear un nuevo objeto entidad para guardar en la base de datos
 	        IncidenciaEntity nuevaIncidencia = new IncidenciaEntity();
 	        nuevaIncidencia.setNumeroAula(crearIncidenciaDTO.getNumeroAula());
 	        nuevaIncidencia.setCorreoDocente(crearIncidenciaDTO.getCorreoDocente());
-	        nuevaIncidencia.setFechaIncidencia(fechaIncidenciaF);
+	        
+	        if (crearIncidenciaDTO.getFechaIncidencia() == null)
+	        {
+	        	nuevaIncidencia.setFechaIncidencia(new Date());
+	        }
+	        else
+	        {
+	        	nuevaIncidencia.setFechaIncidencia(crearIncidenciaDTO.getFechaIncidencia());
+	        }
+	        
 	        nuevaIncidencia.setDescripcionIncidencia(crearIncidenciaDTO.getDescripcionIncidencia());
 	        nuevaIncidencia.setEstadoIncidencia(Constants.ESTADO_PENDIENTE);
 	        
@@ -262,11 +274,16 @@ public class IncidenciaController
 	        iIncidenciaRepository.saveAndFlush(nuevaIncidencia);
 
 	        // Loguea el éxito de la operación
-	        log.info("Incidencia creada con éxito: {}", nuevaIncidencia);
+	        log.info("Incidencia creada correctamente: {}", nuevaIncidencia);
 
 	        // Devuelve la respuesta exitosa
-	        return ResponseEntity.status(HttpStatus.CREATED).body("Incidencia creada con éxito.");
-	    } 
+	        return ResponseEntity.ok().build();
+	    }
+	    catch (IssuesServerError exception)
+		{
+			// Si llega aquí es porque ha habido un error de validación de datos de cliente
+			return ResponseEntity.status(400).body(exception.getMapError()) ;
+		}
 	    catch (Exception ex) 
 	    {
 	        String message = "ERROR: Error al crear la incidencia:\n " + ex.getMessage();
@@ -307,7 +324,12 @@ public class IncidenciaController
 					inEntity.getFechaIncidencia())))
 			{
 				// Si no existe la incidencia, responde con 404.
-				return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Incidencia no encontrada.");
+				//return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Incidencia no encontrada.");
+				
+				String errorString = "Incidencia no encontrada." ;
+	        	
+	        	log.error(errorString) ;
+	        	throw new IssuesServerError(6, errorString) ;
 			}
 
 			// Elimina la incidencia de la base de datos y loguea la accion.
@@ -317,6 +339,10 @@ public class IncidenciaController
 			// Respuesta HTTP de objeto borrado con exito.
 			return ResponseEntity.status(HttpStatus.NO_CONTENT).body("INFO:Incidencia eliminada con exito.");
 
+		}
+		catch (IssuesServerError exception)
+		{
+			return ResponseEntity.status(400).body(exception.getMapError()) ;
 		}
 		// Error en parametros DTO u objeto nulo.
 		catch (IllegalArgumentException illegalArgumentException)
