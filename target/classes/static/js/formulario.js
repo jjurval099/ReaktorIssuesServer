@@ -1,3 +1,4 @@
+/**
 // Obtiene referencia al formulario 
 const form = document.getElementById('formIncidencia');
 

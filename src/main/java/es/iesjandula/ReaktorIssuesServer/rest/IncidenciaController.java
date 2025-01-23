@@ -1,18 +1,19 @@
 package es.iesjandula.ReaktorIssuesServer.rest;
 
-import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import es.iesjandula.ReaktorIssuesServer.dto.CrearIncidenciaDTO;
 import es.iesjandula.ReaktorIssuesServer.dto.FiltroBusqueda;
 import es.iesjandula.ReaktorIssuesServer.dto.IncidenciaDTO;
 import es.iesjandula.ReaktorIssuesServer.entity.IncidenciaEntity;
@@ -57,8 +58,9 @@ import lombok.extern.slf4j.Slf4j;
  * @see IIncidenciaRepository
  * @see IncidenciaMapper
  */
-@Slf4j // añade el logger.
+@Slf4j 
 @RestController
+@CrossOrigin("*")
 @RequestMapping(value = "/incidencias")
 public class IncidenciaController
 {
@@ -210,66 +212,70 @@ public class IncidenciaController
 	 *         con código de estado 500 (Internal Server Error).</li>
 	 *         </ul>
 	 */
-	@RequestMapping(name="/post", method = RequestMethod.POST)
-	public ResponseEntity<?> buscaIncidencia(@RequestBody FiltroBusqueda filtroBusqueda)
+	@PostMapping("/crear_incidencia")
+	public ResponseEntity<?> crearIncidencia(@RequestBody CrearIncidenciaDTO crearIncidenciaDTO) 
 	{
-		try
-		{
-			// Loguea los parametros recibidos
-			log.debug("DEBUG: Parametros de busqueda recibidos:\n {}", filtroBusqueda.toString());
+	    try 
+	    {
+	        // Loguea los parámetros recibidos
+	        log.debug("DEBUG: Parametros de incidencia recibidos:\n {}", crearIncidenciaDTO.toString());
 
-			// Fecha inicio para el filtrado
-			Date fechainicioF;
-			// Fecha fin para el filtrado
-			Date fechafinF;
-					
-			// Formateador de fecha
-		   SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");
+	        // Validar que los datos obligatorios estén presentes
+	        if (crearIncidenciaDTO.getNumeroAula() == null || crearIncidenciaDTO.getNumeroAula().isEmpty()) 
+	        {
+	            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("El número de aula es obligatorio.");
+	        }
 
-			// Horas formateadas para consulta en bbdd.
-			if (filtroBusqueda.getFechaInicio() == null || filtroBusqueda.getFechaInicio().isBlank())
-			{
-				fechainicioF = formatter.parse("01-01-1979");
-			} else
-			{
-				fechainicioF = formatter.parse(filtroBusqueda.getFechaInicio());
-			}
-			if (filtroBusqueda.getFechaFin() == null || filtroBusqueda.getFechaFin().isBlank())
-			{
-				fechafinF = formatter.parse("31-12-2099");
-			} else
-			{
-				fechafinF = formatter.parse(filtroBusqueda.getFechaFin());
-			}
+	        if (crearIncidenciaDTO.getCorreoDocente() == null || crearIncidenciaDTO.getCorreoDocente().isEmpty())
+	        {
+	            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("El correo del docente es obligatorio.");
+	        }
 
-			// Invoca el metodo con query personalizada para busqueda con nulos.
-			List<IncidenciaDTO> listado = iIncidenciaRepository.buscaIncidencia(filtroBusqueda.getNumeroAula(), filtroBusqueda.getCorreoDocente(),
-					fechainicioF, fechafinF, filtroBusqueda.getDescripcionIncidencia(), filtroBusqueda.getEstadoIncidencia(), filtroBusqueda.getComentario());
+	        if (crearIncidenciaDTO.getDescripcionIncidencia() == null || crearIncidenciaDTO.getDescripcionIncidencia().isEmpty()) 
+	        {
+	            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("La descripción de la incidencia es obligatoria.");
+	        }
+	        
 
-			// Registra los elementos encontrados en la lista.
-			log.debug("DEBUG: Objetos encontrados {}", listado.size());
+	        // Formatear y asignar fecha si no se proporciona
+	        Date fechaIncidenciaF;
+	        if (crearIncidenciaDTO.getFechaIncidencia() == null)
+	        {
+	            fechaIncidenciaF = new Date(); // Fecha actual
+	            crearIncidenciaDTO.setFechaIncidencia(fechaIncidenciaF);
+	        } 
+	        else 
+	        {
+	            fechaIncidenciaF = crearIncidenciaDTO.getFechaIncidencia();
+	        }
+	        
 
-			// Verifica si la lista de resultados está vacía y devuelve un mensaje adecuado.
-			if (listado.isEmpty())
-			{
-				log.info("No se han encontrado incidencias con los criterios especificados.");
-				return ResponseEntity.status(HttpStatus.NOT_FOUND)
-						.body("No se han encontrado incidencias con los criterios especificados.");
-			}
+	        // Crear un nuevo objeto entidad para guardar en la base de datos
+	        IncidenciaEntity nuevaIncidencia = new IncidenciaEntity();
+	        nuevaIncidencia.setNumeroAula(crearIncidenciaDTO.getNumeroAula());
+	        nuevaIncidencia.setCorreoDocente(crearIncidenciaDTO.getCorreoDocente());
+	        nuevaIncidencia.setFechaIncidencia(fechaIncidenciaF);
+	        nuevaIncidencia.setDescripcionIncidencia(crearIncidenciaDTO.getDescripcionIncidencia());
+	        
+	        // Guardar la incidencia en la base de datos
+	        iIncidenciaRepository.saveAndFlush(nuevaIncidencia);
 
-			// Si el filtro no es nulo y la lista no está vacia devuelve los resultados
-			// encontrados.
-			return ResponseEntity.status(HttpStatus.OK).body(listado);
+	        // Loguea el éxito de la operación
+	        log.info("Incidencia creada con éxito: {}", nuevaIncidencia);
 
-		}
-		catch (Exception searchIssueException)
-		{
-			String message = "ERROR: Capturado en buscaIncidencia()\n {}" + searchIssueException.getMessage();
-			log.error(message, searchIssueException);
-			IssuesServerError serverError = new IssuesServerError(3, message, searchIssueException);
-			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(serverError.getMapError());
-		}
+	        // Devuelve la respuesta exitosa
+	        return ResponseEntity.status(HttpStatus.CREATED).body("Incidencia creada con éxito.");
+	    } 
+	    catch (Exception ex) 
+	    {
+	        String message = "ERROR: Error al crear la incidencia:\n " + ex.getMessage();
+	        log.error(message, ex);
+
+	        IssuesServerError serverError = new IssuesServerError(3, message, ex);
+	        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(serverError.getMapError());
+	    }
 	}
+	
 
 	/**
 	 * Elimina una incidencia de la base de datos basándose en los detalles
