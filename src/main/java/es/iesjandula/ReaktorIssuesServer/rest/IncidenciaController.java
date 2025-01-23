@@ -256,6 +256,7 @@ public class IncidenciaController
 	        nuevaIncidencia.setCorreoDocente(crearIncidenciaDTO.getCorreoDocente());
 	        nuevaIncidencia.setFechaIncidencia(fechaIncidenciaF);
 	        nuevaIncidencia.setDescripcionIncidencia(crearIncidenciaDTO.getDescripcionIncidencia());
+	        nuevaIncidencia.setEstadoIncidencia(Constants.ESTADO_PENDIENTE);
 	        
 	        // Guardar la incidencia en la base de datos
 	        iIncidenciaRepository.saveAndFlush(nuevaIncidencia);

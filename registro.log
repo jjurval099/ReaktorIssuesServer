@@ -1345,3 +1345,58 @@ IncidenciaEntity(numeroAula=0.2, correoDocente=davjasg@gmail.com, fechaIncidenci
 2025-01-17T14:58:40.104+01:00  WARN 14076 --- [http-nio-8888-exec-1] o.s.web.servlet.PageNotFound             : No endpoint GET /favicon.ico.
 2025-01-17T15:00:05.716+01:00  WARN 14076 --- [http-nio-8888-exec-4] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'GET' is not supported]
 2025-01-17T15:00:18.325+01:00  WARN 14076 --- [http-nio-8888-exec-5] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'GET' is not supported]
+2025-01-23T13:47:44.024+01:00  INFO 12840 --- [restartedMain] e.i.R.ReaktorIssuesServerApplication     : Starting ReaktorIssuesServerApplication using Java 23 with PID 12840 (C:\Users\2DAM\eclipse-workspace-psp-aad\ReaktorIssuesServer\target\classes started by 2DAM in C:\Users\2DAM\eclipse-workspace-psp-aad\ReaktorIssuesServer)
+2025-01-23T13:47:44.027+01:00  INFO 12840 --- [restartedMain] e.i.R.ReaktorIssuesServerApplication     : No active profile set, falling back to 1 default profile: "default"
+2025-01-23T13:47:44.096+01:00  INFO 12840 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-01-23T13:47:44.096+01:00  INFO 12840 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-01-23T13:47:44.801+01:00  INFO 12840 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-01-23T13:47:44.867+01:00  INFO 12840 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 58 ms. Found 1 JPA repository interface.
+2025-01-23T13:47:45.516+01:00  INFO 12840 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8888 (http)
+2025-01-23T13:47:45.533+01:00  INFO 12840 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-01-23T13:47:45.533+01:00  INFO 12840 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.30]
+2025-01-23T13:47:45.585+01:00  INFO 12840 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-01-23T13:47:45.586+01:00  INFO 12840 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1489 ms
+2025-01-23T13:47:45.751+01:00  INFO 12840 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-01-23T13:47:45.812+01:00  INFO 12840 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.5.3.Final
+2025-01-23T13:47:45.859+01:00  INFO 12840 --- [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-01-23T13:47:46.182+01:00  INFO 12840 --- [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-01-23T13:47:46.218+01:00  INFO 12840 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-01-23T13:47:46.568+01:00  INFO 12840 --- [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@1ee6148a
+2025-01-23T13:47:46.570+01:00  INFO 12840 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-01-23T13:47:47.393+01:00  INFO 12840 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-01-23T13:47:47.461+01:00  INFO 12840 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-01-23T13:47:47.723+01:00  INFO 12840 --- [restartedMain] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-01-23T13:47:48.454+01:00  WARN 12840 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-01-23T13:47:48.808+01:00  INFO 12840 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2025-01-23T13:47:48.846+01:00  INFO 12840 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8888 (http) with context path '/'
+2025-01-23T13:47:48.856+01:00  INFO 12840 --- [restartedMain] e.i.R.ReaktorIssuesServerApplication     : Started ReaktorIssuesServerApplication in 5.326 seconds (process running for 5.84)
+2025-01-23T13:49:27.184+01:00  INFO 12840 --- [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2025-01-23T13:49:27.194+01:00  INFO 12840 --- [Thread-5] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-01-23T13:49:27.198+01:00  INFO 12840 --- [Thread-5] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-01-23T13:49:27.203+01:00  INFO 12840 --- [Thread-5] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-01-23T13:49:27.282+01:00  INFO 12840 --- [restartedMain] e.i.R.ReaktorIssuesServerApplication     : Starting ReaktorIssuesServerApplication using Java 23 with PID 12840 (C:\Users\2DAM\eclipse-workspace-psp-aad\ReaktorIssuesServer\target\classes started by 2DAM in C:\Users\2DAM\eclipse-workspace-psp-aad\ReaktorIssuesServer)
+2025-01-23T13:49:27.282+01:00  INFO 12840 --- [restartedMain] e.i.R.ReaktorIssuesServerApplication     : No active profile set, falling back to 1 default profile: "default"
+2025-01-23T13:49:27.467+01:00  INFO 12840 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-01-23T13:49:27.482+01:00  INFO 12840 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 13 ms. Found 1 JPA repository interface.
+2025-01-23T13:49:27.576+01:00  INFO 12840 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8888 (http)
+2025-01-23T13:49:27.577+01:00  INFO 12840 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-01-23T13:49:27.577+01:00  INFO 12840 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.30]
+2025-01-23T13:49:27.597+01:00  INFO 12840 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-01-23T13:49:27.598+01:00  INFO 12840 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 313 ms
+2025-01-23T13:49:27.629+01:00  INFO 12840 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-01-23T13:49:27.632+01:00  INFO 12840 --- [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-01-23T13:49:27.642+01:00  INFO 12840 --- [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-01-23T13:49:27.644+01:00  INFO 12840 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Starting...
+2025-01-23T13:49:27.662+01:00  INFO 12840 --- [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-2 - Added connection com.mysql.cj.jdbc.ConnectionImpl@bce4467
+2025-01-23T13:49:27.662+01:00  INFO 12840 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Start completed.
+2025-01-23T13:49:27.710+01:00  INFO 12840 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-01-23T13:49:27.743+01:00  INFO 12840 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-01-23T13:49:27.819+01:00  WARN 12840 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-01-23T13:49:27.930+01:00  INFO 12840 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2025-01-23T13:49:27.940+01:00  INFO 12840 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8888 (http) with context path '/'
+2025-01-23T13:49:27.944+01:00  INFO 12840 --- [restartedMain] e.i.R.ReaktorIssuesServerApplication     : Started ReaktorIssuesServerApplication in 0.695 seconds (process running for 104.931)
+2025-01-23T13:49:27.946+01:00  INFO 12840 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2025-01-23T13:50:30.643+01:00  INFO 12840 --- [http-nio-8888-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-01-23T13:50:30.643+01:00  INFO 12840 --- [http-nio-8888-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-01-23T13:50:30.644+01:00  INFO 12840 --- [http-nio-8888-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2025-01-23T13:50:30.838+01:00  INFO 12840 --- [http-nio-8888-exec-1] e.i.R.rest.IncidenciaController          : Incidencia creada con éxito: IncidenciaEntity(numeroAula=a, correoDocente=a@a, fechaIncidencia=Thu Jan 23 13:50:30 CET 2025, descripcionIncidencia=fjiwejfwkefjwkljfw, estadoIncidencia=PENDIENTE, comentario=null)
